@@ -10,7 +10,7 @@ function saveToCart(){
 }
 
 function loadCart(){
-    
+
     if(saveToCart){
 
     }
@@ -49,6 +49,24 @@ function renderProducts(products){
         games.innerHTML +=  createProductCard(product)
     })
     }
+}
+
+function renderCart(){
+    const cartContainer = document.querySelector("#cartItems");
+    if(cartContainer){
+        cartContainer.innerHTML = "";
+        cart.forEach(cartItem => {
+            const product = products.find(p => p.id === cartItem.id)
+            if (product){
+                cartContainer.innerHTML = `
+                <div class='cart-item'>
+                <span></span>
+                <span></span>
+                `
+            }
+        })
+    }
+
 }
 
 async function fetchGames() {
