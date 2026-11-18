@@ -6,13 +6,13 @@ let products = []
 let cart = []
 
 function saveToCart(){
-    localStorage.setItem(cart, JSON.stringify())
+    localStorage.setItem(cart, JSON.stringify(value))
 }
 
 function loadCart(){
 
     if(saveToCart){
-
+        cart = saveToCart()
     }
 }
 
