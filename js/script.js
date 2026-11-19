@@ -90,5 +90,5 @@ async function fetchGames() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchGames().then(()=> ());
+    fetchGames().then(()=> (products));
 });
