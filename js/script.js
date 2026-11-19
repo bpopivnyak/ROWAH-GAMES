@@ -29,6 +29,7 @@ function addToCart(productId){
 
 function createProductCard(product){
     return `
+    <div class="col">
   <div class="card">
     <img src="${product.image}" class="card-img-top" alt="...">
     <div class="card-body">
@@ -37,6 +38,7 @@ function createProductCard(product){
       <p class="card-text"><small class="text-body-secondary">${product.price}</small></p>
       <a href="#" class="btn btn-primary" onclick="addToCart(${product.id})">В кошик!</a>
     </div>
+  </div>
   </div>
     `
 
@@ -90,5 +92,5 @@ async function fetchGames() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    fetchGames().then(()=> (products));
+    fetchGames().then(()=> renderCart());
 });
