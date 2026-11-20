@@ -8,7 +8,7 @@ let cart = []
 loadCart()
 
 function saveToCart(){
-    localStorage.setItem(cart, JSON.stringify(cart))
+    localStorage.setItem('cart', JSON.stringify(cart))
 }
 
 function loadCart(){
@@ -21,14 +21,14 @@ function loadCart(){
 }
 
 function addToCart(productId){
-    const cartItem = cart.find(item => item.find === productId);
+    const cartItem = cart.find(item => item.productId === productId);
     if (cartItem){
         cartItem.quantity += 1
     } else {
-        const item = {productId: 1, quantity: 1};
+        const item = {productId: productId, quantity: 1};
         cart.push(item);
     }
-    console.log('Поточний кошик:', cart);
+    saveToCart();
 }
 
 function createProductCard(product){
@@ -65,9 +65,9 @@ function renderCart(){
     if(cartContainer){
         cartContainer.innerHTML = "";
         cart.forEach(cartItem => {
-            const product = products.find(p => p.id === cartItem.id)
+            const product = products.find(p => p.id === cartItem.productId)
             if (product){
-                cartContainer.innerHTML = `
+                cartContainer.innerHTML += `
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row g-0">
                         <div class="col-md-4">
