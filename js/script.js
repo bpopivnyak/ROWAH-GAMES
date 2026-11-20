@@ -5,14 +5,18 @@ const SUPABASE_ANON_KEY = 'sb_publishable_OqaR7Y8iJFURzTJGk0ODCg_6pBxrvSO'
 let products = []
 let cart = []
 
+loadCart()
+
 function saveToCart(){
-    localStorage.setItem(cart, JSON.stringify(value))
+    localStorage.setItem(cart, JSON.stringify(cart))
 }
 
 function loadCart(){
-
-    if(saveToCart){
-        cart = saveToCart()
+    const data = localStorage.getItem('cart')
+    if(data){
+        cart = JSON.parse(data)
+    } else{
+        cart = []
     }
 }
 
@@ -36,7 +40,9 @@ function createProductCard(product){
       <h5 class="card-title">${product.name}</h5>
       <p class="card-text">${product.description}</p>
       <p class="card-text"><small class="text-body-secondary">${product.price}</small></p>
-      <a href="#" class="btn btn-primary" onclick="addToCart(${product.id})">В кошик!</a>
+      <a href="#" class="btn btn-primary" onclick="addToCart(${product.id})">
+      <i class="bi bi-cart-plus"></i>
+      В кошик!</a>
     </div>
   </div>
   </div>
@@ -54,6 +60,7 @@ function renderProducts(products){
 }
 
 function renderCart(){
+    console.log("cart", cart)
     const cartContainer = document.querySelector("#cartItems");
     if(cartContainer){
         cartContainer.innerHTML = "";
@@ -61,9 +68,19 @@ function renderCart(){
             const product = products.find(p => p.id === cartItem.id)
             if (product){
                 cartContainer.innerHTML = `
-                <div class='cart-item'>
-                <span></span>
-                <span></span>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                        <img src="${product.image}" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">${product.name}</h5>
+                            <p class="card-text">${product.price}$ x ${cartItem.quantity}</p>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 `
             }
         })
