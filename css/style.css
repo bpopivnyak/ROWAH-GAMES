@@ -7,6 +7,28 @@ header {
     justify-content: center;
 }
 
+.navbar{
+    width: 100%;
+    background: #181818;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    padding: 10px 30px;
+    box-sizing: border-box;
+}
+
+.navbar-logo{
+    text-decoration: none;
+    font-style: normal;
+    color: rgb(185, 3, 3)
+}
+
 h1 {
     display: flex;
     color: rgb(230, 82, 82)
