@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+
 body {
     background-image: url(../img/Gemini_Generated_Image_l1uappl1uappl1ua.jpg);
+    width: 100%;
 }
 
 header {
@@ -26,7 +29,31 @@ header {
 .navbar-logo{
     text-decoration: none;
     font-style: normal;
-    color: rgb(185, 3, 3)
+    color: rgb(185, 3, 3);
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.input-field {
+    box-sizing: border-box;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 23px;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid #fffeed;
+    border-radius: 54px 0px 0px 54px;
+}
+
+.search-button {
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 23px;
+    background: #181818;
+    color: #fffeed;
+    border: 1px solid #fffeed;
+    border-radius: 0px 200px 200px 0px;
 }
 
 h1 {

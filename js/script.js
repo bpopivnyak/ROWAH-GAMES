@@ -2,6 +2,8 @@ const games = document.querySelector('#games')
 const SUPABASE_API_URL = 'https://leyboxifijmwfjcqjukz.supabase.co/rest/v1/games'
 const SUPABASE_ANON_KEY = 'sb_publishable_OqaR7Y8iJFURzTJGk0ODCg_6pBxrvSO'
 
+const searchInput = document.querySelector('.input-field')
+
 let products = []
 let cart = []
 
@@ -19,6 +21,8 @@ function loadCart(){
         cart = []
     }
 }
+
+
 
 function addToCart(productId){
     const cartItem = cart.find(item => item.productId === productId);
@@ -39,7 +43,7 @@ function createProductCard(product){
     <div class="card-body">
       <h5 class="card-title">${product.name}</h5>
       <p class="card-text">${product.description}</p>
-      <p class="card-text"><small class="text-body-secondary">${product.price}</small></p>
+      <p class="card-text"><small class="text-body-secondary">${product.price}₴</small></p>
       <a href="#" class="btn btn-primary" onclick="addToCart(${product.id})">
       <i class="bi bi-cart-plus"></i>
       В кошик!</a>
